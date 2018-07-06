@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pet
+  labels:
+    app: pet
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: pet
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pet
+  labels:
+    app: pet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pet
+  template:
+    metadata:
+      labels:
+        app: pet
+    spec:
+      containers:
+      - name: pet
+        image: service-pet
+        ports:
+        - containerPort: 80

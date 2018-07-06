@@ -1,0 +1,15 @@
+.git
+Dockerfile*
+.dockerignore
+/build/*
+/out/*
+.gradle/
+.idea/
+k8-*
+*.iml
+.DS_Store
+.gitignore
+README.md
+gradle/*
+gradlew
+gradlew.bat

@@ -1,9 +1,8 @@
 FROM gradle-cache:latest as builder
 COPY --chown=gradle:gradle . /app
 WORKDIR /app
-RUN ls -l .
 ENV JAVA_OPTS="-Xms2g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -Dfile.encoding=UTF-8"
-RUN gradle bootJar --build-cache -q
+RUN gradle bootJar --build-cache -i
 FROM anapsix/alpine-java:latest
 ARG PORT
 ARG JAR_NAME
