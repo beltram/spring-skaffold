@@ -1,4 +1,4 @@
-FROM gradle-cache:latest as builder
+FROM gradle:4.8.1-jre10-slim as builder
 COPY --chown=gradle:gradle . /app
 WORKDIR /app
 ENV GRADLE_OPTS='-Dorg.gradle.jvmargs="-Xmx4g -XX:+HeapDumpOnOutOfMemoryError"'

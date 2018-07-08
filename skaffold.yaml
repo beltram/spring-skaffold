@@ -5,6 +5,8 @@ build:
   - imageName: service-pet
     workspace: pet
     docker:
+      #      Uncomment to use gradle dependency caching
+      #      dockerfilePath: Dockerfile-with-cache
       buildArgs:
         JAR_NAME: "pet"
         VERSION: "0.0.1-SNAPSHOT"
@@ -12,6 +14,8 @@ build:
   - imageName: service-store
     workspace: store
     docker:
+      #      Uncomment to use gradle dependency caching
+      #      dockerfilePath: Dockerfile-with-cache
       buildArgs:
         JAR_NAME: "store"
         VERSION: "0.0.1-SNAPSHOT"

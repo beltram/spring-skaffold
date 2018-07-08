@@ -1,0 +1,14 @@
+FROM gradle:4.8.1-jre10-slim
+MAINTAINER Beltram Maldant "beltram.maldantgmail.com"
+USER root
+ENV JAVA_OPTS="-Xms2g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -Dfile.encoding=UTF-8"
+ADD . /home/gradle/.gradle/caches/modules-2/files-2.1
+CMD /bin/true
+
+# Go to your gradle home folder
+# Should be a .gradle folder ($HOME/.gradle on mac)
+# Then go to caches/modules-2/files-2.1
+# As pushing context to docker daemon might take time, it would be a good idea to clear your gradle cache (delete everything in this folder)
+# Copy this dockerfile there
+# Then execute
+# docker build -t gradle-cache:latest .
