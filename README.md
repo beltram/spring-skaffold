@@ -14,6 +14,8 @@ At project root
     * ```skaffold run```
 * Continuous development
     * ```skaffold dev```
+#### Tips
+* To cleanup dangling docker images (especially if running skaffold dev) just run ```docker system prune```
 ## Still to do
 * Improve startup time
     * Use slimmer gradle image
