@@ -27,3 +27,4 @@ At project root
 * Base docker builder images have to be deleted on each build (issue on skaffold size)
 * Find a smarter way to handle cache (currently a base docker image) could be fixed if skaffold allows passing options to docker build
 * Add liveness and readiness probes to k8s services
+* Try micronaut & Spring Fu also
