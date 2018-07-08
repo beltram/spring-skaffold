@@ -6,12 +6,18 @@ Sample to set up a local continuous development of spring boot apps with skaffol
 * ```curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64 && chmod +x skaffold && sudo mv skaffold /usr/local/bin```
 ##### on mac
 * ```curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-darwin-amd64 && chmod +x skaffold && sudo mv skaffold /usr/local/bin```
-### install docker
-### install kubernetes
-either minikube or docker for mac
+### install docker and local kubernetes
+either minikube or docker for mac (for kubernetes). Optionally install istio
+## Run
+At project root
+* Run once
+    * ```skaffold run```
+* Continuous development
+    * ```skaffold dev```
 ## Still to do
 * Improve startup time
     * Use slimmer gradle image
+    * Fix gradle plugins not picked from cache
     * Start Spring Boot apps on GraalVM once [this issue](https://jira.spring.io/browse/SPR-16991) fixed
 * Manage istio routes the clever way
 * Manage infra components (mongo, redis, kafka...)
