@@ -11,6 +11,7 @@ either minikube or docker for mac (for kubernetes). Optionally install istio
 ## Use gradle cache
 Skaffold does not allow currently to pass options to docker build. Thus it prevents us from creating a volume containing gradle cache.
 The current workaround is to locally build a docker image with gradle local cached artifacts and use it as a base image
+  
 Go to your gradle home folder  
 Should be a .gradle folder ($HOME/.gradle on mac)  
 Then go to caches/modules-2/files-2.1  
@@ -40,3 +41,5 @@ At project root
 * Add liveness and readiness probes to k8s services
 * Try micronaut & Spring Fu also
 * Try bazel as build tool
+## Links
+* [Skaffold annotated](https://github.com/GoogleContainerTools/skaffold/blob/master/examples/annotated-skaffold.yaml)
