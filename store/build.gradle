@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        kotlinVersion = '1.2.51'
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories { jcenter() }
+}
+
+plugins{
+    id "org.jetbrains.kotlin.jvm" version "1.2.51"
+    id "org.jetbrains.kotlin.plugin.spring" version "1.2.51"
+    id "org.springframework.boot" version "2.0.3.RELEASE"
+    id "io.spring.dependency-management" version "1.0.5.RELEASE"
+}
+
+group = 'io.beltram'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+
+repositories { jcenter() }
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('com.fasterxml.jackson.module:jackson-module-kotlin')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compile("org.jetbrains.kotlin:kotlin-reflect")
+    testCompile 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.projectreactor:reactor-test')
+}

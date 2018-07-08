@@ -1,0 +1,22 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  artifacts:
+  - imageName: service-pet
+    workspace: pet
+    docker:
+      buildArgs:
+        JAR_NAME: "pet"
+        VERSION: "0.0.1-SNAPSHOT"
+        PORT: "80"
+  - imageName: service-store
+    workspace: store
+    docker:
+      buildArgs:
+        JAR_NAME: "store"
+        VERSION: "0.0.1-SNAPSHOT"
+        PORT: "80"
+deploy:
+  kubectl:
+    manifests:
+    - kube/k8s-*
