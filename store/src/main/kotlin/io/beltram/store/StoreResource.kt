@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.toMono
 
 @RestController
-@RequestMapping("/stores")
+@RequestMapping("/store")
 class StoreResource {
 
     @GetMapping
-    fun hi() = "I'm a store".toMono()
+    fun hi() = "I'm a store ".toMono()
 }

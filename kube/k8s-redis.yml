@@ -1,37 +1,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: store
   labels:
-    app: store
+    name: redis
+  name: redis
 spec:
-  type: LoadBalancer
   ports:
-  - port: 8081
-    name: http
+  - port: 6379
+    targetPort: 6379
   selector:
-    app: store
+    name: redis
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: store
+  name: redis
   labels:
-    app: store
+    app: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: store
+      app: redis
   template:
     metadata:
       labels:
-        app: store
+        app: redis
     spec:
       containers:
-      - name: store
-        image: service-store
+      - name: redis
+        image: redis
         ports:
-        - containerPort: 8081
+        - containerPort: 6379

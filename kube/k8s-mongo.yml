@@ -1,37 +1,36 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: store
   labels:
-    app: store
+    name: mongo
+  name: mongo
 spec:
-  type: LoadBalancer
   ports:
-  - port: 8081
-    name: http
+  - port: 27017
+    targetPort: 27017
   selector:
-    app: store
+    name: mongo
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: store
+  name: mongo
   labels:
-    app: store
+    app: mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: store
+      app: mongo
   template:
     metadata:
       labels:
-        app: store
+        app: mongo
     spec:
       containers:
-      - name: store
-        image: service-store
+      - name: mongo
+        image: mongo
         ports:
-        - containerPort: 8081
+        - containerPort: 27017

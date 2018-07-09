@@ -2,11 +2,17 @@ apiVersion: skaffold/v1alpha2
 kind: Config
 build:
   artifacts:
+  - imageName: mongo
+    workspace: mongo
+  - imageName: redis
+    workspace: redis
+  - imageName: istio
+    workspace: istio
   - imageName: service-pet
     workspace: pet
     docker:
       #      Uncomment to use gradle dependency caching
-      #      dockerfilePath: Dockerfile-with-cache
+      dockerfilePath: Dockerfile-with-cache
       buildArgs:
         JAR_NAME: "pet"
         VERSION: "0.0.1-SNAPSHOT"
@@ -15,7 +21,7 @@ build:
     workspace: store
     docker:
       #      Uncomment to use gradle dependency caching
-      #      dockerfilePath: Dockerfile-with-cache
+      dockerfilePath: Dockerfile-with-cache
       buildArgs:
         JAR_NAME: "store"
         VERSION: "0.0.1-SNAPSHOT"
