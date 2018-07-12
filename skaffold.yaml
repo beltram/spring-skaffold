@@ -2,12 +2,8 @@ apiVersion: skaffold/v1alpha2
 kind: Config
 build:
   artifacts:
-  - imageName: mongo
-    workspace: mongo
-  - imageName: redis
-    workspace: redis
-  - imageName: istio
-    workspace: istio
+  - imageName: mongodb
+    workspace: helm/mongodb
   - imageName: service-pet
     workspace: pet
     docker:
@@ -29,4 +25,12 @@ build:
 deploy:
   kubectl:
     manifests:
-    - kube/k8s-*
+    - kube/*
+    - istio/*
+  helm:
+    releases:
+    - name: mongodb
+      chartPath: helm/mongodb
+      values:
+        image: mongodb
+      namespace: default

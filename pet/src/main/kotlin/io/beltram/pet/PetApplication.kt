@@ -4,10 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class PetApplication {
+class PetApplication
 
-    fun main(args: Array<String>) {
-        runApplication<PetApplication>(*args)
-
-    }
+fun main(args: Array<String>) {
+    runApplication<PetApplication>(*args)
 }

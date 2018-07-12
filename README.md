@@ -12,13 +12,11 @@ either minikube or docker for mac (for kubernetes). Optionally install istio
 Skaffold does not allow currently to pass options to docker build. Thus it prevents us from creating a volume containing gradle cache.
 The current workaround is to locally build a docker image with gradle local cached artifacts and use it as a base image
   
-Go to your gradle home folder  
-Should be a .gradle folder ($HOME/.gradle on mac)  
-Then go to caches/modules-2/files-2.1  
-As pushing context to docker daemon might take time, it would be a good idea to clear your gradle cache (delete everything in this folder)  
-Copy this dockerfile there  
-Then execute  
-docker build -t gradle-cache:latest .  
+* Go to your gradle home folder. Should be a .gradle folder ($HOME/.gradle on mac)  
+* Go to caches/modules-2/files-2.1  
+* As pushing context to docker daemon might take time, it would be a good idea to clear your gradle cache (delete everything in this folder)  
+* Copy [this dockerfile](dockerfiles/Dockerfile-gradle-cache)
+* Then execute ```docker build -t gradle-cache:latest .```  
 ## Run
 At project root
 * Run once

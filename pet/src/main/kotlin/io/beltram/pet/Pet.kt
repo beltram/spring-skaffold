@@ -4,5 +4,4 @@ enum class RACE {
     CAT, DOG
 }
 
-data class Pet(val name: String, val race: RACE, val age: Int) {
-}
+data class Pet(val name: String, val race: RACE, val age: Int)

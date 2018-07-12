@@ -5,15 +5,12 @@ metadata:
   labels:
     app: pet
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
     name: http
   selector:
     app: pet
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
