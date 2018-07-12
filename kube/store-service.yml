@@ -5,15 +5,13 @@ metadata:
   labels:
     app: store
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
-  - port: 8081
+  - port: 80
     name: http
   selector:
     app: store
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -34,7 +32,7 @@ spec:
       - name: store
         image: service-store
         ports:
-        - containerPort: 8081
+        - containerPort: 80
         resources:
           requests:
             memory: "128Mi"

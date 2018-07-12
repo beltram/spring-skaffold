@@ -39,5 +39,9 @@ At project root
 * Add liveness and readiness probes to k8s services
 * Try micronaut & Spring Fu also
 * Try bazel as build tool
+* Add label to builder images
+* Try jib
+* Try distroless
+* Single dockerfile
 ## Links
 * [Skaffold annotated](https://github.com/GoogleContainerTools/skaffold/blob/master/examples/annotated-skaffold.yaml)

@@ -10,6 +10,7 @@ spec:
     name: http
   selector:
     app: pet
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -18,7 +19,6 @@ metadata:
   labels:
     app: pet
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: pet
