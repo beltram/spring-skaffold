@@ -9,6 +9,6 @@ ARG PORT
 ARG JAR_NAME
 ARG VERSION
 ENV JAR=$JAR_NAME-$VERSION.jar
-COPY --from=builder /app/build/libs/$JAR .
-ENTRYPOINT java -jar $JAR
+COPY --from=builder /app/build/libs/$JAR app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
 EXPOSE $PORT
