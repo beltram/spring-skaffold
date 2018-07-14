@@ -25,7 +25,7 @@ build:
 deploy:
   kubectl:
     manifests:
-    - istio/0.8.0/*
+    - istio/0.8.0/install/kubernetes/*
     - k8s/*
     - routes/*
 #  helm:
